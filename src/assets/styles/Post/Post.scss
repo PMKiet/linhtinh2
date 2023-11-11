@@ -1,0 +1,40 @@
+.card-post {
+     background-color: gray;
+     margin: 2px 0;
+     padding: 5px 10px;
+     height: 150px;
+     position: relative;
+     border: 1px solid black;
+     border-radius: 8px;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.title {
+     text-overflow: ellipsis;
+
+     /* Needed to make it work */
+     overflow: hidden;
+     white-space: nowrap;
+}
+
+.content {
+     min-width: 80px;
+     margin: 10px 0;
+     -webkit-line-clamp: 3;
+     text-overflow: ellipsis;
+     overflow: hidden;
+     color: white;
+}
+
+.button {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+}
+
+.detai {
+     background-color: gray;
+     max-width: 700px;
+     margin: 0 auto;
+
+}
