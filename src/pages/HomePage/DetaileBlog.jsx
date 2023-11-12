@@ -4,6 +4,7 @@ import axios from 'axios';
 import LoadingScreen from '../../components/loadingScreen/LoadingScreen';
 import '../../assets/styles/Post/Post.scss'
 import { Link } from 'react-router-dom';
+import { fetchDataLogsDetail } from '../../services/axios';
 
 function DetaileBlog(props) {
      let { id } = useParams()
@@ -18,9 +19,11 @@ function DetaileBlog(props) {
      const fetchAllData = async () => {
           setIsLoading(true)
 
-          await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-               .then(response => {
-                    setDetaiDataLog(response.data)
+          // await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+          await fetchDataLogsDetail(id)
+
+               .then(dataDetail => {
+                    setDetaiDataLog(dataDetail)
                })
                .catch(error => {
                     console.error('Lỗi:', error);

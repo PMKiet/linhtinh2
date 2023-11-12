@@ -22,7 +22,7 @@ function NavBar(props) {
                                    <NavLink className='nav-link' to="/">Home</NavLink>
                               </NavItem>
                               <NavItem>
-                                   <NavLink className='nav-link' to="/about">About</NavLink>
+                                   <NavLink className='nav-link' to="/countTime">CountdownTimer</NavLink>
                               </NavItem>
                               <NavItem>
                                    <NavLink className='nav-link' to="/contact">Contact</NavLink>

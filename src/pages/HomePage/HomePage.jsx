@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../../assets/styles/Post/Post.scss'
 import LoadingScreen from '../../components/loadingScreen/LoadingScreen';
+import { fetchDataLogs } from '../../services/axios';
 
 function HomePage(props) {
 
@@ -10,21 +10,21 @@ function HomePage(props) {
      let [isLoading, setIsLoading] = useState(false)
 
      useEffect(() => {
-          fetchAllData()
+          getDataLogs()
      }, [])
 
-     const fetchAllData = async () => {
+     const getDataLogs = async () => {
           setIsLoading(true)
 
-          await axios.get('https://jsonplaceholder.typicode.com/posts')
-               .then(response => {
-                    setDataBlog(response.data.slice(0, 10))
+          await fetchDataLogs()
+               .then(dataLogs => {
+                    setDataBlog(dataLogs.slice(0, 50))
                })
                .catch(error => {
                     console.error('Lỗi:', error);
                });
-          setIsLoading(false)
 
+          setIsLoading(false)
      }
 
      return (

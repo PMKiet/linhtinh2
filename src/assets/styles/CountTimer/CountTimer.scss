@@ -1,0 +1,35 @@
+.time-container {
+     background-image: url(../../images/bgClock.jfif);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     width: 100%;
+     position: absolute;
+     top: 0;
+     padding-top: 80px;
+     height: 100%;
+     z-index: -111111;
+     opacity: .9;
+
+}
+
+.time-card {
+     max-width: 400px;
+     color: white;
+     margin: 0 0 0 50%;
+     text-align: center;
+}
+
+.iconClock {
+     font-size: 200px;
+}
+
+.time {
+     border: 3px solid wheat;
+     border-radius: 5px;
+     padding: 10px 20px;
+     max-width: 400px;
+     margin: 0 auto;
+     display: flex;
+     justify-content: space-evenly;
+}
