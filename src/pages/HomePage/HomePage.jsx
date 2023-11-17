@@ -32,7 +32,7 @@ function HomePage(props) {
                {isLoading === true ? <LoadingScreen /> :
                     <div className='row post-list'>
                          {dataBlog && dataBlog.length > 0 && dataBlog.map(item => (
-                              <div className='col-3 '>
+                              <div className='col-12 col-sm-3'>
                                    <div className='card-post'>
                                         <h5 className='title'>Title: {item.title}</h5>
                                         <div className='content'>{item.body}</div>

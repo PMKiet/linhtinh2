@@ -25,10 +25,7 @@ function NavBar(props) {
                                    <NavLink className='nav-link' to="/countTime">CountdownTimer</NavLink>
                               </NavItem>
                               <NavItem>
-                                   <NavLink className='nav-link' to="/contact">Contact</NavLink>
-                              </NavItem>
-                              <NavItem>
-                                   <NavLink className='nav-link' to="/contact">Contact</NavLink>
+                                   <NavLink className='nav-link' to="/tableUser">Table User</NavLink>
                               </NavItem>
                          </Nav>
                     </Collapse>

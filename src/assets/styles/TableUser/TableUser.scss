@@ -1,0 +1,42 @@
+table {
+     width: 100%;
+     table-layout: fixed;
+     min-width: 1000px;
+}
+
+.table_body {
+     overflow: auto;
+}
+
+.table_body::-webkit-scrollbar {
+     width: 5px;
+     height: 5px;
+}
+
+.table_body::-webkit-scrollbar-thumb {
+     border-radius: 5px;
+     background-color: wheat;
+}
+
+.optionTable {
+
+     &__edit {
+          float: left;
+          display: flex;
+          margin: 0 10px;
+          padding: 4px 10px;
+          align-items: center;
+          border-radius: 6px;
+          background: #0099FF;
+     }
+
+     &__delete {
+          display: flex;
+          margin: 0 10px;
+          padding: 4px 10px;
+          align-items: center;
+          border-radius: 6px;
+          background: #FF3333;
+          max-width: 80px;
+     }
+}
