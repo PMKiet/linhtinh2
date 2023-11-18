@@ -7,9 +7,7 @@ import { deleteUser } from '../../services/axios';
 import { useNavigate } from 'react-router-dom';
 
 function TableUser(props) {
-     let [isShowFormAdd, setIsShowFormAdd] = useState(false)
      let [listUser, setListUser] = useState()
-     const navigate = useNavigate()
      useEffect(() => {
           fetchDataUser()
      }, [])
@@ -23,10 +21,11 @@ function TableUser(props) {
           }
      }
 
-     const handleDelete = async (id) => {
-          const confirm = window.confirm('Do you want to delete')
+     const handleDelete = async (user) => {
+          const confirm = window.confirm('Do you want to delete: ' + user.name)
           if (confirm) {
-               await deleteUser(id)
+               // console.log(name);
+               await deleteUser(user.id)
                     .then(response => {
                          alert('has delete user')
                          window.location.reload();
@@ -58,9 +57,12 @@ function TableUser(props) {
                                              <td>{user.name}</td>
                                              <td>{user.email}</td>
                                              <td className='optionTable'>
-                                                  <span className='optionTable__edit'><FaEdit /><span>Edit</span></span>
+                                                  <NavLink
+                                                       to={`/update/${user.id}`}
+                                                       className='optionTable__edit'
+                                                  ><FaEdit /><span>Edit</span></NavLink>
                                                   <span
-                                                       onClick={(even) => handleDelete(user.id)}
+                                                       onClick={(even) => handleDelete(user)}
                                                        className='optionTable__delete'
                                                   > <FaTrash /><span>Delete</span></span>
                                              </td>

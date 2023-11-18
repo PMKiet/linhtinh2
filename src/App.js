@@ -4,6 +4,7 @@ import DetaileBlog from "./pages/HomePage/DetaileBlog";
 import CountdownTimer from "./pages/countDown/CountdownTimer";
 import TableUser from "./pages/TableUser/TableUser";
 import FormAddUser from "./pages/TableUser/formAddUser";
+import FormEditUser from "./pages/TableUser/formEditUser";
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -20,6 +21,7 @@ function App() {
           <Route path="/countTime" element={<CountdownTimer />} />
           <Route path="/tableUser" element={<TableUser />} />
           <Route path="/createUser" element={<FormAddUser />} />
+          <Route path="/update/:id" element={<FormEditUser />} />
         </Routes>
 
       </BrowserRouter>

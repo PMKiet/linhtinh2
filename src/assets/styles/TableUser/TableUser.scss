@@ -18,6 +18,13 @@ table {
      background-color: wheat;
 }
 
+.optionTable__edit,
+.optionTable__delete {
+     cursor: pointer;
+     text-decoration: none;
+     color: white;
+}
+
 .optionTable {
 
      &__edit {
