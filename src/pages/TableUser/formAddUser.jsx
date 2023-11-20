@@ -3,7 +3,10 @@ import { adddUser, getAllUser } from '../../services/axios';
 import { useNavigate } from 'react-router-dom';
 import { addUser } from '../../services/axios';
 import '../../assets/styles/TableUser/formAddUser.scss'
+import { NavLink } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import { FaArrowLeftLong } from "react-icons/fa6";
+
 
 function FormAddUser(props) {
      let [inputValue, setInputValue] = useState({ name: '', email: '' })
@@ -27,8 +30,8 @@ function FormAddUser(props) {
                }
 
                setInputValue({ name: '', email: '' })
-               // navigate('/tableUser')
-               toast("Wow so easy!")
+               navigate('/tableUser')
+               toast("Add user success!")
           } catch (error) {
                console.log(error)
           }
@@ -37,11 +40,11 @@ function FormAddUser(props) {
      return (
           <div className='form__container' onSubmit={handleSubmit}>
                <form className='form'>
-                    <div class="form-group">
+                    <div className="form-group">
                          <label for="exampleInputPassword1">Name</label>
                          <input
                               type="text"
-                              class="form-control"
+                              className="form-control"
                               id="name"
                               placeholder="Enter your name"
                               onChange={(even) => setInputValue({ ...inputValue, name: even.target.value })}
@@ -55,11 +58,11 @@ function FormAddUser(props) {
                          >Enter your name</span>}
                     </div>
                     {/* //////////////////////////////////////////////////////////////// */}
-                    <div class="form-group">
+                    <div className="form-group">
                          <label for="exampleInputEmail1">Email address</label>
                          <input
                               type="email"
-                              class="form-control"
+                              className="form-control"
                               id="exampleInputEmail1"
                               aria-describedby="emailHelp"
                               placeholder="Enter email"
@@ -79,6 +82,9 @@ function FormAddUser(props) {
                          className="btn btn-primary btn-submit_fromUser"
                     // onClick={() => handleSubmit()}
                     >Submit</button>
+                    <div className='back'>
+                         <NavLink to='/tableUser'><span><FaArrowLeftLong /> Back</span></NavLink>
+                    </div>
                     <ToastContainer
                          position="top-right"
                          autoClose={5000}

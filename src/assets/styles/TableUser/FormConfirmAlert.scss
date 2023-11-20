@@ -1,0 +1,72 @@
+.confirm {
+     position: absolute;
+     z-index: 10000;
+     background-color: transparent;
+     top: 0;
+     right: 0;
+     width: 100%;
+     height: 100%;
+
+     &::after {
+          content: '';
+          position: absolute;
+          background-color: black;
+          z-index: 1000;
+          opacity: .7;
+          width: 100%;
+          top: 0;
+          right: 0;
+          height: 100%;
+     }
+}
+
+.confirm__container {
+     position: relative;
+     z-index: 10000;
+     background-color: white;
+     max-width: 450px;
+     margin: 200px auto 0;
+     padding: 18px;
+     border-radius: 15px;
+     animation: showFromTop .3s ease;
+}
+
+@keyframes showFromTop {
+     from {
+          margin-top: 80px;
+          opacity: .2;
+     }
+
+     to {
+          margin-top: 200px;
+          opacity: 1;
+     }
+}
+
+.confirm__title {
+     display: flex;
+     justify-content: space-between;
+     padding-bottom: 5px;
+     align-items: center;
+     border-bottom: 1px solid grey;
+}
+
+.confirm__text {
+     display: block;
+     padding: 15px 0;
+     border-bottom: 1px solid grey;
+}
+
+.group__button {
+     display: flex;
+     justify-content: flex-end;
+     padding-top: 5px;
+
+     button {
+          margin-right: 5px;
+     }
+}
+
+.hide {
+     display: none;
+}

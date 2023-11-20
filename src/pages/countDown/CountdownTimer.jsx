@@ -53,7 +53,7 @@ function CountdownTimer(props) {
      };
 
      return (
-          <div className='time-container'>
+          <div className='time-container '>
                <div className='time-card'>
                     <div>
                          <GiAlarmClock className='iconClock' />

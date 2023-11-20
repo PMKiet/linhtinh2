@@ -1,9 +1,9 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { getOneUser, editUser } from '../../services/axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import NotFound from '../../components/notFound/NotFound';
 import '../../assets/styles/TableUser/formAddUser.scss'
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 
 function FormEditUser(props) {
@@ -42,11 +42,11 @@ function FormEditUser(props) {
      return (
           <div className='form__container' onSubmit={handleSubmit}>
                <form className='form'>
-                    <div class="form-group">
+                    <div className="form-group">
                          <label for="exampleInputPassword1">Name</label>
                          <input
                               type="text"
-                              class="form-control"
+                              className="form-control"
                               id="name"
                               placeholder="Enter your name"
                               value={dataUserById.name}
@@ -54,11 +54,11 @@ function FormEditUser(props) {
                          />
                     </div>
                     {/* //////////////////////////////////////////////////////////////// */}
-                    <div class="form-group">
+                    <div className="form-group">
                          <label for="exampleInputEmail1">Email address</label>
                          <input
                               type="email"
-                              class="form-control"
+                              className="form-control"
                               id="exampleInputEmail1"
                               aria-describedby="emailHelp"
                               placeholder="Enter email"
@@ -70,6 +70,9 @@ function FormEditUser(props) {
                     <button
                          className="btn btn-primary btn-submit_fromUser"
                     >Submit</button>
+                    <div className='back'>
+                         <NavLink to='/tableUser'><span><FaArrowLeftLong /> Back</span></NavLink>
+                    </div>
                </form>
           </div>
      );
