@@ -46,7 +46,7 @@
 }
 
 .search.active {
-     width: 300px;
+     width: 380px;
 }
 
 .search .input {
@@ -62,11 +62,10 @@
 .search .input input {
      position: absolute;
      top: 0;
-     width: 150%;
-     padding: 0 60px;
+     width: 180%;
+     padding: 0 100px;
      height: 100%;
      background-color: transparent;
-     // opacity: 0.5;
      border: transparent;
      outline: transparent;
 

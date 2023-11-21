@@ -1,7 +1,7 @@
 {
   "user": [
     {
-      "name": "newUser",
+      "name": "newUsera",
       "email": "NewUser@gmail.com",
       "id": 13
     },
@@ -9,6 +9,11 @@
       "name": "PHẠM MINH KIỆ",
       "email": "0921393765@unknown.com",
       "id": 15
+    },
+    {
+      "name": "ádasdasdas",
+      "email": "adasd@gmail.com",
+      "id": 17
     }
   ]
 }

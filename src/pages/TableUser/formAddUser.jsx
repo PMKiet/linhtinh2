@@ -81,7 +81,7 @@ function FormAddUser(props) {
                          // type="submit"
                          className="btn btn-primary btn-submit_fromUser"
                     // onClick={() => handleSubmit()}
-                    >Submit</button>
+                    >Add</button>
                     <div className='back'>
                          <NavLink to='/tableUser'><span><FaArrowLeftLong /> Back</span></NavLink>
                     </div>

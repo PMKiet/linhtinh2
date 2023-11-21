@@ -11,15 +11,13 @@ import { deleteUser } from '../../services/axios';
 //import component
 import { toast, ToastContainer } from 'react-toastify';
 import FormConfirmAlert from './FormConfirmAlert';
+import SearchUser from './searchUser';
 
 
 function TableUser(props) {
      let [isShow, setIsShow] = useState(false)
      let [listUser, setListUser] = useState()
-     let [activeSeacrh, setActiveSeacrh] = useState(false)
      let [userToDelete, setUserToDelete] = useState(null);
-     let [filter, setFilter] = useState('')
-     const [filteredUsers, setFilteredUsers] = useState([]);
 
      useEffect(() => {
           fetchDataUser()
@@ -56,28 +54,6 @@ function TableUser(props) {
           setIsShow(true);
      };
 
-     const handleActiveSeacrh = () => {
-          setActiveSeacrh(!activeSeacrh)
-     }
-
-     const handleClearValueSearchInput = () => {
-          setFilter('')
-          setFilteredUsers([])
-     }
-
-     const handleFilterChange = (event) => {
-          const searchTerm = event.target.value.toLowerCase();
-          setFilter(searchTerm)
-
-          // Filter users based on the search term
-          const filtered = listUser.filter(user =>
-               user.name.toLowerCase().includes(searchTerm) ||
-               user.email.toLowerCase().includes(searchTerm)
-          );
-          setFilteredUsers(filtered)
-     }
-
-
      return (
           <div>
                <div className="container mt-3">
@@ -92,43 +68,10 @@ function TableUser(props) {
                     {/* add new user end */}
 
                     {/* search user by name or email */}
-                    <div>
-                         <div className={`search ${activeSeacrh ? 'active' : ''}`}>
-                              <div className='icon' onClick={() => handleActiveSeacrh()}></div>
-                              <div className='input'>
-                                   <input
-                                        type="text"
-                                        placeholder='Filter by name or email'
-                                        value={filter}
-                                        onChange={handleFilterChange}
-                                   />
-                              </div>
-                              {activeSeacrh &&
-                                   <span
-                                        className='clear'
-                                        onClick={() => handleClearValueSearchInput()}
-                                   ></span>}
-                         </div>
-                         <div>
-                              {filter && <div>
-                                   {filteredUsers.map(user => (
-                                        <div>
-                                             <li key={user.id}>{user.name} - {user.email}</li>
-                                             <td className='optionTable'>
-                                                  <NavLink
-                                                       to={`/update/${user.id}`}
-                                                       className='optionTable__edit'
-                                                  ><FaEdit /><span>Edit</span></NavLink>
-                                                  <span
-                                                       onClick={(even) => handleConfirmDelete(user)}
-                                                       className='optionTable__delete'
-                                                  > <FaTrash /><span>Delete</span></span>
-                                             </td>
-                                        </div>
-                                   ))}
-                              </div>}
-                         </div>
-                    </div>
+                    <SearchUser
+                         listUser={listUser}
+                         conFirmDelete={handleConfirmDelete}
+                    />
                     {/* search user by name or email end */}
 
                     {/* table user  */}
