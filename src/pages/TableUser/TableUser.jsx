@@ -12,10 +12,14 @@ import { deleteUser } from '../../services/axios';
 import { toast, ToastContainer } from 'react-toastify';
 import FormConfirmAlert from './FormConfirmAlert';
 import SearchUser from './searchUser';
+import FormAddUser from './formAddUser';
+import FormEditUser from './formEditUser';
 
 
 function TableUser(props) {
      let [isShow, setIsShow] = useState(false)
+     let [isShowAddUser, setIsShowAddUser] = useState(false)
+     let [isShowEditUser, setIsShowEditUser] = useState(false)
      let [listUser, setListUser] = useState()
      let [userToDelete, setUserToDelete] = useState(null);
 
@@ -54,6 +58,7 @@ function TableUser(props) {
           setIsShow(true);
      };
 
+
      return (
           <div>
                <div className="container mt-3">
@@ -61,7 +66,7 @@ function TableUser(props) {
                     <div className='add-new'>
                          <h2>Dark Striped Table</h2>
                          <p>Add New User: <NavLink
-                              to='/createUser'
+                              onClick={() => setIsShowAddUser(true)}
                               className='btn btn-success'
                          ><FaPlus /> <span>AddNew</span></NavLink></p>
                     </div>
@@ -92,6 +97,7 @@ function TableUser(props) {
                                              <td className='optionTable'>
                                                   <NavLink
                                                        to={`/update/${user.id}`}
+                                                       // onClick={() => setIsShowEditUser(true)}
                                                        className='optionTable__edit'
                                                   ><FaEdit /><span>Edit</span></NavLink>
                                                   <span
@@ -106,6 +112,9 @@ function TableUser(props) {
                          {/* table user end */}
                     </div>
                </div>
+               {isShowAddUser && <FormAddUser
+                    setIsShowAddUser={setIsShowAddUser}
+               />}
                {isShow &&
                     <FormConfirmAlert
                          setShow={setIsShow}

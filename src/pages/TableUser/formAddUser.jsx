@@ -8,7 +8,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 
-function FormAddUser(props) {
+function FormAddUser({ setIsShowAddUser }) {
      let [inputValue, setInputValue] = useState({ name: '', email: '' })
      let [validInputName, setValidInputName] = useState(false)
      let [validInputEmail, setValidInputEmail] = useState(false)
@@ -30,7 +30,8 @@ function FormAddUser(props) {
                }
 
                setInputValue({ name: '', email: '' })
-               navigate('/tableUser')
+               // setIsShowOptionUser(false)
+               window.location.reload()
                toast("Add user success!")
           } catch (error) {
                console.log(error)
@@ -82,8 +83,8 @@ function FormAddUser(props) {
                          className="btn btn-primary btn-submit_fromUser"
                     // onClick={() => handleSubmit()}
                     >Add</button>
-                    <div className='back'>
-                         <NavLink to='/tableUser'><span><FaArrowLeftLong /> Back</span></NavLink>
+                    <div className='back' onClick={() => setIsShowAddUser(false)}>
+                         <a href='#'><span><FaArrowLeftLong /> Back</span></a>
                     </div>
                     <ToastContainer
                          position="top-right"
