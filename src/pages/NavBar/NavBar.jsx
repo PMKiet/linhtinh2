@@ -11,7 +11,7 @@ function NavBar(props) {
      const toggle = () => setIsOpen(!isOpen);
 
      return (
-          <Navbar color="dark" dark expand="sm">
+          <Navbar color="dark" dark expand="sm" className='fixed-top'>
                <Container>
                     <NavbarBrand href="/">My Website</NavbarBrand>
                     <NavbarToggler onClick={toggle} />
@@ -26,6 +26,12 @@ function NavBar(props) {
                               </NavItem>
                               <NavItem>
                                    <NavLink className='nav-link' to="/tableUser">Table User</NavLink>
+                              </NavItem>
+                              <NavItem>
+                                   <NavLink className='nav-link' to="/userPaginate">User Paginate</NavLink>
+                              </NavItem>
+                              <NavItem>
+                                   <NavLink className='nav-link' to="/presskey">PressKey</NavLink>
                               </NavItem>
                          </Nav>
                     </Collapse>

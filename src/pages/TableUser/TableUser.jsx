@@ -22,19 +22,37 @@ function TableUser(props) {
      let [isShowEditUser, setIsShowEditUser] = useState(false)
      let [listUser, setListUser] = useState()
      let [userToDelete, setUserToDelete] = useState(null);
+     //sort user
+     let [sortBy, setSortBy] = useState('name') //mặc định sắp xếp theo tên
+     let [sortOrder, setSortOrder] = useState('name') //mặc định sắp xếp theo thứ tự
 
      useEffect(() => {
           fetchDataUser()
-     }, [])
+     }, [sortBy, sortOrder])
 
      const fetchDataUser = async () => {
           try {
                const response = await getAllUser()
                setListUser(response.data)
+               //dataSort
+               let sortedUser = [...response.data]
+               //sắp xếp danh sách người dùng theo trạng thái hiện tại
+               sortedUser.sort((a, b) => {
+                    const order = sortOrder === 'asc' ? 1 : -1
+                    return a[sortBy].localeCompare(b[sortBy]) * order
+               })
+
+               setListUser(sortedUser)
+
                // setFilteredUsers(response.data)
           } catch (error) {
                console.log('>>>Error from UserList', error);
           }
+     }
+
+     const handleSort = (field) => {
+          // nếu trường hiện tại giống với trường được nhấp, đảo ngược thứ tự; ngược lại, sắp xếp theo thứ tự tăng dần
+          setSortOrder(sortBy === field ? (sortOrder === 'asc' ? 'desc' : 'asc') : 'asc')
      }
 
 
@@ -84,8 +102,12 @@ function TableUser(props) {
                          <table className="table table-dark table-striped">
                               <thead>
                                    <tr>
-                                        <th>User name </th>
-                                        <th>Email</th>
+                                        <th onClick={() => handleSort('name')}>
+                                             User name {sortBy === 'name' && (sortOrder === 'asc' ? '▲' : '▼')}
+                                        </th>
+                                        <th onClick={() => handleSort('email')}>
+                                             Email {sortBy === 'email' && (sortOrder === 'asc' ? '▲' : '▼')}
+                                        </th>
                                         <th>Option</th>
                                    </tr>
                               </thead>

@@ -19,7 +19,6 @@ function DetaileBlog(props) {
      const fetchAllData = async () => {
           setIsLoading(true)
 
-          // await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
           await fetchDataLogsDetail(id)
 
                .then(dataDetail => {
